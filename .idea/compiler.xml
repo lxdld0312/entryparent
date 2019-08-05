@@ -6,6 +6,11 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="entry-common" />
+        <module name="entry-manager-mapper" />
+        <module name="entry-manager-pojo" />
+        <module name="entry-manager-service" />
+        <module name="entry-web" />
         <module name="entrycommon" />
         <module name="entrymanagermapper" />
         <module name="entrymanagerpojo" />

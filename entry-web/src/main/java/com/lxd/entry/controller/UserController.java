@@ -1,22 +1,26 @@
 package com.lxd.entry.controller;
 
 import com.lxd.entry.pojo.User;
+import com.lxd.entry.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping("user")
 public class UserController {
 
-    @RequestMapping("get")
+    @Autowired
+    private UserService userService;
+
+    /**
+     * 根据用户编号查询网站用户
+     * @return
+     */
     @ResponseBody
-    public User queryUserById(){
-        User user = new User();
-        user.setUsername("lxd");
-        user.setNickname("刘贤德");
-        user.setPassword("123456");
-        return user;
+    @RequestMapping(value = "/get{id}",method = RequestMethod.GET)
+    public User queryUserById(@PathVariable("id")String id){
+        userService.queryUserById(id);
+        return new User();
     }
 }
